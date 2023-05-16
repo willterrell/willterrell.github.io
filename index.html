@@ -1,20 +1,54 @@
 <html>
     <head>
-        <script>
-            var c = document.getElementById("myCanvas");
-            var ctx = c.getContext("2d");
-            ctx.moveTo(0, 0);
-            ctx.lineTo(200, 100);
-            ctx.stroke();
-        </script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="#">
+        <script src="bundle.js" defer></script>
     </head>
     <body>
-        <header>
-            <h1>
-                Automata Lab
-            </h1>
-        </header>
-        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
-        </canvas>
+        <div id="canvasContainer">
+            <canvas class="canvas" id="automataCanvas"></canvas>
+            <div id="canvasLoaderContainer">
+                <div class="loader">
+                    <div class="loaderAnimation"></div>
+                    <div id="canvasLoaderText">Testing Automata</div>
+                    <button id="cancelButton">Cancel</button>
+                </div>
+                <div class="transparentCover"></div>
+            </div>
+        </div>
+        
+        <div class="bottomControls">
+            <button id="runButton">Run</button>
+            <button id="stepButton">Step</button>
+            <div class="buttonWithDropup dropup">
+                <button id="randomAutomataButton">Randomize Automata</button>
+                <button id="randomAutomataOptionsButton">^</button>
+                <div class="dropup-content" id="randomAutomataMenu">
+                    <label for="searchForAutomataCheckbox">Search For Low Density Automata?</label>
+                    <input type="checkbox" id="searchForAutomataCheckbox">
+                    <br>
+                    <label for="transitionProbabilityNumber">Probability For An Automata To Transition For A Certain Number Of Neighbors</label>
+                    <input type="number" min="0" max="1" step="0.01" value="0.1" id="transitionProbabilityNumber">
+                </div>
+            </div>
+            <input id="zoomRange" type="range" min="1" max="10" value="1" class="slider">
+            <input id="speedRange" type="range" min="20" max="1000" value="500" class="slider">
+            <button id="clearButton">Clear</button>
+            <div class="buttonWithDropup">
+                <button id="randomButton">Random</button>
+                <button id="randomOptionsButton">^</button>
+                <div class="dropup-content" id="randomMenu">
+                    <label for="randomSizeRange">Random Size</label>
+                    <input id="randomSizeRange" type="range" min="1" max="100" value="10" class="slider">
+                </div>
+            </div>
+            <select id="drawTypeSelection"></select> 
+            <div id="importExportContainer" class="dropup">  
+                <button id="importExportButton" class="dropbtn">Import/Export</button>
+                <div id="importExportMenu" class="dropup-content">
+                    <textarea id="importExportText"></textarea>
+                </div>
+            </div>  
+        </div>
     </body>
 </html>
