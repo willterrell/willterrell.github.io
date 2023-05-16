@@ -45,7 +45,7 @@ automataCanvas.height = automataCanvas.offsetHeight;
 
 automataCanvas.getContext("2d").imageSmoothingEnabled = false;
 
-let width = 300, height = 300, gridLinesPixelSize = 20, numOfAutomatas = 4;
+let width = 400, height = 225, gridLinesPixelSize = 20, numOfAutomatas = 4;
 
 for (var i = 0; i < numOfAutomatas; i++) {
     var option = document.createElement("option");
